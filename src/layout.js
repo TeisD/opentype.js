@@ -77,7 +77,7 @@ Layout.prototype = {
      */
     getTable: function(create) {
         let layout = this.font.tables[this.tableName];
-        if (!layout && create) {
+        if ((!layout && create) || layout.scripts === undefined) {
             layout = this.font.tables[this.tableName] = this.createDefaultTable();
         }
         return layout;
